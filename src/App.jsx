@@ -1,5 +1,13 @@
+import IpDetails from "./components/IpDetails";
+import Navbar from "./components/Navbar";
+
 const App = () => {
-  return <div>Hello</div>;
+  return (
+    <>
+      <Navbar />
+      <IpDetails />
+    </>
+  );
 };
 
 export default App;
