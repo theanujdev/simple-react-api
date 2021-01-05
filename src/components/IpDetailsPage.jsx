@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const IpDetails = () => {
+const IpDetailsPage = () => {
   const [ipDetails, setIpDetails] = useState({});
   function getDetails() {
     fetch("http://ip-api.com/json/")
@@ -39,4 +39,4 @@ const IpDetails = () => {
   );
 };
 
-export default IpDetails;
+export default IpDetailsPage;
