@@ -3,8 +3,7 @@ import HomePage from "./HomePage";
 import IpDetailsPage from "./IpDetailsPage";
 import JokesPage from "./JokesPage";
 import RobotsPage from "./RobotsPage";
-import MemesPage from "./MemesPage";
-import CatPage from "./CatPage";
+import PhotosPage from "./PhotosPage";
 
 const Navbar = () => {
   return (
@@ -26,14 +25,9 @@ const Navbar = () => {
               Robots
             </button>
           </Link>
-          <Link to="/memes">
+          <Link to="/photos">
             <button className="text-white hover:shadow-md hover:bg-purple-600 focus:outline-none px-2 py-2 rounded-md">
-              Memes
-            </button>
-          </Link>
-          <Link to="/cat">
-            <button className="text-white hover:shadow-md hover:bg-purple-600 focus:outline-none px-2 py-2 rounded-md">
-              Cat
+              Photos
             </button>
           </Link>
         </div>
@@ -43,8 +37,7 @@ const Navbar = () => {
         <Route path="/ip-details" component={IpDetailsPage} />
         <Route path="/jokes" component={JokesPage} />
         <Route path="/robots" component={RobotsPage} />
-        <Route path="/memes" component={MemesPage} />
-        <Route path="/cat" component={CatPage} />
+        <Route path="/photos" component={PhotosPage} />
       </Switch>
     </Router>
   );
