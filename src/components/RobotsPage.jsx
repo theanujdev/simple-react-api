@@ -25,15 +25,15 @@ const RobotsPage = () => {
   return (
     <section class="p-5 sm:p-10">
       <div class="container mx-auto text-center">
-        <div class="flex sm:w-2/3 mx-auto justify-evenly sm:justify-between">
+        <div class="flex sm:w-2/3 mx-auto mt-4 justify-evenly sm:justify-between">
           <h1
             class="inline-block font-bold
-           text-2xl sm:text-4xl"
+           text-xl sm:text-2xl lg:text-4xl"
           >
-            Robots
+            Robots (Max. 20)
           </h1>
           <input
-            class="bg-white shadow-sm text-lg sm:text-2xl px-3 w-1/2"
+            class="bg-white shadow-sm text-lg sm:py-1 sm:text-2xl px-3 w-2/5"
             type="number"
             name="search"
             id="search"
