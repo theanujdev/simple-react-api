@@ -10,7 +10,7 @@ function PhotosPage() {
         <h1 class="text-4xl">View Our Gallery</h1>
       </div>
       {loading && (
-        <div className="m-10">
+        <div className="mx-0 my-10 sm:m-10">
           <img class="block mx-auto" src={loadingRocket} alt="Loading" />
         </div>
       )}
