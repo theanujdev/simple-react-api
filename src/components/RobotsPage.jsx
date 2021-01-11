@@ -43,7 +43,9 @@ const RobotsPage = () => {
             autoComplete="off"
             placeholder="Number"
             onChange={(e) => {
-              setImgNo(e.target.value);
+              if (e.target.value < 21) {
+                setImgNo(e.target.value);
+              }
             }}
           />
         </div>
