@@ -19,8 +19,10 @@ function PhotosPage() {
   };
 
   useEffect(() => {
-    setImages(Array(15).fill("https://dummyimage.com/200.jpg"));
-    setLoading(false);
+    setTimeout(() => {
+      setImages(Array(15).fill("https://dummyimage.com/200.jpg"));
+      setLoading(false);
+    }, 2000);
   }, []);
 
   useEffect(() => {
