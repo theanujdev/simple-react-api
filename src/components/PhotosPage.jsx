@@ -41,12 +41,13 @@ function PhotosPage() {
   }, [element]);
 
   const cb = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        console.log("Tri");
-        setLoadTrigger(true);
-      }
-    });
+    setTimeout(() => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setLoadTrigger(true);
+        }
+      });
+    }, 2000);
   };
 
   return (
