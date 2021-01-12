@@ -27,7 +27,7 @@ const IpDetailsPage = () => {
             {Object.keys(ipDetails).map((key) => {
               return (
                 <p key={key} className="pb-2 sm:px-10">
-                  <span className="font-bold uppercase">{key} : </span>{" "}
+                  <span className="font-bold uppercase">{key} : </span>
                   {ipDetails[key]}
                 </p>
               );

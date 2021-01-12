@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import loadingBar from "../assets/img/loading.gif";
 import loadingRocket from "../assets/img/rocket.gif";
 
@@ -20,26 +20,26 @@ function PhotosPage() {
 
   useEffect(() => {
     setTimeout(() => {
-      setImages(Array(15).fill("https://dummyimage.com/200.jpg"));
+      setImages(Array(15).fill("https://picsum.photos/200"));
       setLoading(false);
     }, 2000);
   }, []);
 
   useEffect(() => {
-    if (loadTrigger) {
+    if (loadTrigger && window.pageYOffset > 0) {
       setImages([
         ...images,
         ...Array(15).fill("https://dummyimage.com/200.jpg"),
       ]);
-      setLoadTrigger(false);
     }
+    setLoadTrigger(false);
   }, [loadTrigger]);
 
   useEffect(() => {
     if (element) {
       let options = {
         root: document.querySelector(null),
-        rootMargin: "100px",
+        rootMargin: "0px",
         threshold: 0,
       };
 
@@ -56,30 +56,29 @@ function PhotosPage() {
   }, [element]);
 
   return (
-    <section class="p-10 bg-white flex-auto">
-      <div class="text-center">
-        <h1 class="text-4xl">View Our Gallery</h1>
+    <section className="p-10 bg-white flex-auto">
+      <div className="text-center">
+        <h1 className="text-4xl">View Our Gallery</h1>
       </div>
       {loading && (
         <div className="mx-0 my-10 sm:m-10">
-          <img class="block mx-auto" src={loadingRocket} alt="Loading" />
+          <img className="block mx-auto" src={loadingRocket} alt="Loading" />
         </div>
       )}
       {images && (
-        <div class="flex flex-wrap justify-center p-7">
+        <div className="flex flex-wrap justify-center p-7">
           {images.map((image, index) => {
-            return <img key={index} class="m-7" src={image} alt="Image" />;
+            return <img key={index} className="m-7" src={image} alt="Image" />;
           })}
         </div>
       )}
       {!loading && (
         <div className="m-10" ref={setElement}>
-          <img class="block mx-auto" src={loadingBar} alt="Loading" />
+          <img className="block mx-auto" src={loadingBar} alt="Loading" />
         </div>
       )}
     </section>
   );
 }
 
-//https://picsum.photos/200
 export default PhotosPage;
