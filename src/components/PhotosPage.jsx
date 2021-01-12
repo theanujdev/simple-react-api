@@ -3,9 +3,7 @@ import loadingBar from "../assets/img/loading.gif";
 import loadingRocket from "../assets/img/rocket.gif";
 
 function PhotosPage() {
-  const [images, setImages] = useState(
-    Array(15).fill("https://dummyimage.com/200.jpg")
-  );
+  const [images, setImages] = useState(null);
   const [loading, setLoading] = useState(true);
   const [loadTrigger, setLoadTrigger] = useState(false);
   const [element, setElement] = useState(null);
@@ -21,6 +19,11 @@ function PhotosPage() {
   };
 
   useEffect(() => {
+    setImages(Array(15).fill("https://dummyimage.com/200.jpg"));
+    setLoading(false);
+  }, []);
+
+  useEffect(() => {
     if (loadTrigger) {
       setImages([
         ...images,
@@ -34,7 +37,7 @@ function PhotosPage() {
     if (element) {
       let options = {
         root: document.querySelector(null),
-        rootMargin: "500px",
+        rootMargin: "100px",
         threshold: 0,
       };
 
@@ -60,12 +63,13 @@ function PhotosPage() {
           <img class="block mx-auto" src={loadingRocket} alt="Loading" />
         </div>
       )}
-      <div class="flex flex-wrap justify-center p-7">
-        {images.map((image, index) => {
-          return <img key={index} class="m-7" src={image} alt="Image" />;
-        })}
-      </div>
-
+      {images && (
+        <div class="flex flex-wrap justify-center p-7">
+          {images.map((image, index) => {
+            return <img key={index} class="m-7" src={image} alt="Image" />;
+          })}
+        </div>
+      )}
       <div className="m-10" ref={setElement}>
         <img class="block mx-auto" src={loadingBar} alt="Loading" />
       </div>
