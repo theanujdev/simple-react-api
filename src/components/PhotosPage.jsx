@@ -12,13 +12,11 @@ function PhotosPage() {
 
   useEffect(() => {
     if (loadTrigger) {
-      // setImages((images) => [...images, ...data]);
       setImages([
         ...images,
         ...Array(15).fill("https://dummyimage.com/200.jpg"),
       ]);
       setLoadTrigger(false);
-      // console.log("useEffect Run", loadingBar.current);
     }
   }, [loadTrigger]);
 
@@ -26,7 +24,7 @@ function PhotosPage() {
     if (element) {
       let options = {
         root: document.querySelector(null),
-        rootMargin: "0px",
+        rootMargin: "1000px",
         threshold: 0,
       };
 
@@ -43,36 +41,14 @@ function PhotosPage() {
   }, [element]);
 
   const cb = (entries, observer) => {
-    // console.log(entries);
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         console.log("Tri");
         setLoadTrigger(true);
-        // console.log("Sad", element);
       }
     });
   };
 
-  // let target = loadingDiv.current;
-
-  // function getPhotos() {
-  //   return (
-  //     <div class="flex flex-wrap justify-center p-7">
-  //       {Array(15)
-  //         .fill()
-  //         .map(() => {
-  //           return (
-  //             <img
-  //               key={Math.random()}
-  //               class="m-7"
-  //               src="https://dummyimage.com/200.jpg"
-  //               alt="Image"
-  //             />
-  //           );
-  //         })}
-  //     </div>
-  //   );
-  // }
   return (
     <section class="p-10 bg-white flex-auto">
       <div class="text-center">
@@ -96,4 +72,5 @@ function PhotosPage() {
   );
 }
 
+//https://picsum.photos/200
 export default PhotosPage;
