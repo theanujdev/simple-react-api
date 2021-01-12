@@ -72,9 +72,11 @@ function PhotosPage() {
           })}
         </div>
       )}
-      <div className="m-10" ref={setElement}>
-        <img class="block mx-auto" src={loadingBar} alt="Loading" />
-      </div>
+      {!loading && (
+        <div className="m-10" ref={setElement}>
+          <img class="block mx-auto" src={loadingBar} alt="Loading" />
+        </div>
+      )}
     </section>
   );
 }
