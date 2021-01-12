@@ -10,6 +10,16 @@ function PhotosPage() {
   const [loadTrigger, setLoadTrigger] = useState(false);
   const [element, setElement] = useState(null);
 
+  const cb = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          setLoadTrigger(true);
+        }, 2000);
+      }
+    });
+  };
+
   useEffect(() => {
     if (loadTrigger) {
       setImages([
@@ -24,7 +34,7 @@ function PhotosPage() {
     if (element) {
       let options = {
         root: document.querySelector(null),
-        rootMargin: "1000px",
+        rootMargin: "500px",
         threshold: 0,
       };
 
@@ -39,16 +49,6 @@ function PhotosPage() {
       };
     }
   }, [element]);
-
-  const cb = (entries, observer) => {
-    setTimeout(() => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setLoadTrigger(true);
-        }
-      });
-    }, 2000);
-  };
 
   return (
     <section class="p-10 bg-white flex-auto">
