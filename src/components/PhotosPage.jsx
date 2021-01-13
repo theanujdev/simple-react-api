@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import loadingBar from "../assets/img/loading.gif";
 import loadingRocket from "../assets/img/rocket.gif";
+import MoveToTop from "./MoveToTop";
 
 function PhotosPage() {
   const [images, setImages] = useState(null);
@@ -57,6 +58,7 @@ function PhotosPage() {
 
   return (
     <section className="p-10 bg-white flex-auto">
+      <MoveToTop />
       <div className="text-center">
         <h1 className="text-4xl">View Our Gallery</h1>
       </div>

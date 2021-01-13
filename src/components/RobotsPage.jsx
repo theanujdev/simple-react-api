@@ -1,18 +1,15 @@
 import { useState } from "react";
+import MoveToTop from "./MoveToTop";
 
 function Img({ imgNo }) {
   let intNumber = parseInt(imgNo);
-  if (imgNo && Number.isInteger(intNumber) && intNumber > 0) {
+  if (imgNo && Number.isInteger(intNumber) && intNumber > -1) {
     return Array(intNumber)
       .fill()
-      .map(() => {
-        let random = Math.floor(Math.random() * 1000) + 1;
+      .map((i) => {
+        let random = Math.floor(Math.random() * 100) + 1;
         return (
-          <img
-            src={`https://robohash.org/${random}`}
-            key={random}
-            alt="Robots"
-          />
+          <img src={`https://robohash.org/${random}`} key={i} alt="Robots" />
         );
       });
   }
@@ -21,9 +18,10 @@ function Img({ imgNo }) {
 }
 
 const RobotsPage = () => {
-  const [imgNo, setImgNo] = useState(null);
+  const [imgNo, setImgNo] = useState("");
   return (
     <section className="p-5 sm:p-10">
+      <MoveToTop />
       <div className="container mx-auto text-center">
         <div className="flex sm:w-2/3 mx-auto mt-4 justify-evenly sm:justify-between">
           <h1
