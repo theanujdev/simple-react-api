@@ -25,9 +25,7 @@ function PhotosPage() {
   }, []);
 
   useEffect(() => {
-    console.log("uu1");
     if (loadTrigger && window.pageYOffset > 300) {
-      console.log("uu2");
       setTimeout(() => {
         setImages([
           ...images,
@@ -74,7 +72,7 @@ function PhotosPage() {
       {images && (
         <div className="flex flex-wrap justify-center p-7">
           {images.map((image, index) => {
-            return <img key={index} className="m-7" src={image} alt="Image" />;
+            return <img key={index} className="m-7" src={image} alt="Nice" />;
           })}
         </div>
       )}

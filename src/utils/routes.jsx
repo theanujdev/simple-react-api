@@ -4,7 +4,7 @@ import JokesPage from "../components/JokesPage";
 import RobotsPage from "../components/RobotsPage";
 import PhotosPage from "../components/PhotosPage";
 
-export default [
+const routes = [
   {
     path: "/",
     exact: true,
@@ -27,3 +27,5 @@ export default [
     component: PhotosPage,
   },
 ];
+
+export default routes;
