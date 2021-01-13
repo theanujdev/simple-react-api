@@ -1,25 +1,23 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import routes from "./utils/routes";
 import Navbar from "./components/Navbar";
-import HomePage from "./components/HomePage";
-import IpDetailsPage from "./components/IpDetailsPage";
-import JokesPage from "./components/JokesPage";
-import RobotsPage from "./components/RobotsPage";
-import PhotosPage from "./components/PhotosPage";
 
 const App = () => {
   return (
-    <>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/ip-details" component={IpDetailsPage} />
-          <Route path="/jokes" component={JokesPage} />
-          <Route path="/robots" component={RobotsPage} />
-          <Route path="/photos" component={PhotosPage} />
-        </Switch>
-      </Router>
-    </>
+    <Router>
+      <Navbar />
+      <Switch>
+        {routes.map((route) => {
+          return (
+            <Route
+              path={route.path}
+              exact={route.exact}
+              component={route.component}
+            />
+          );
+        })}
+      </Switch>
+    </Router>
   );
 };
 
