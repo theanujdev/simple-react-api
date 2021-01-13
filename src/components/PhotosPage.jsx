@@ -12,9 +12,7 @@ function PhotosPage() {
   const cb = (entries, observer) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        setTimeout(() => {
-          setLoadTrigger(true);
-        }, 2000);
+        setLoadTrigger(true);
       }
     });
   };
@@ -27,13 +25,19 @@ function PhotosPage() {
   }, []);
 
   useEffect(() => {
-    if (loadTrigger && window.pageYOffset > 0) {
-      setImages([
-        ...images,
-        ...Array(15).fill("https://dummyimage.com/200.jpg"),
-      ]);
+    console.log("uu1");
+    if (loadTrigger && window.pageYOffset > 300) {
+      console.log("uu2");
+      setTimeout(() => {
+        setImages([
+          ...images,
+          ...Array(15).fill("https://dummyimage.com/200.jpg"),
+        ]);
+      }, 2000);
     }
-    setLoadTrigger(false);
+    if (loadTrigger) {
+      setLoadTrigger(false);
+    }
   }, [loadTrigger]);
 
   useEffect(() => {
