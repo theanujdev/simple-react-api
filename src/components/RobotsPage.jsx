@@ -6,10 +6,14 @@ function Img({ imgNo }) {
   if (imgNo && Number.isInteger(intNumber) && intNumber > -1) {
     return Array(intNumber)
       .fill()
-      .map((i) => {
-        let random = Math.floor(Math.random() * 100) + 1;
+      .map(() => {
+        let random = Math.floor(Math.random() * 1000) + 1;
         return (
-          <img src={`https://robohash.org/${random}`} key={i} alt="Robots" />
+          <img
+            src={`https://robohash.org/${random}`}
+            key={random}
+            alt="Robots"
+          />
         );
       });
   }
