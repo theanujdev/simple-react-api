@@ -20,7 +20,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:css": "npx tailwindcss-cli@latest build ./src/assets/tailwind.css -o ./src/assets/main.css"
+    "dev:css": "npx tailwindcss-cli@latest build -o ./src/assets/main.css",
+    "build:css": "SET NODE_ENV=production& npx tailwindcss-cli@latest build ./src/assets/tailwind.css -o ./src/assets/main.css"
   },
   "eslintConfig": {
     "extends": [
