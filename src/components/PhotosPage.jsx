@@ -27,10 +27,12 @@ function PhotosPage() {
   useEffect(() => {
     if (loadTrigger && window.pageYOffset > 300) {
       setTimeout(() => {
-        setImages([
-          ...images,
-          ...Array(15).fill("https://dummyimage.com/200.jpg"),
-        ]);
+        setImages((prevImages) => {
+          return [
+            ...prevImages,
+            ...Array(15).fill("https://dummyimage.com/200.jpg"),
+          ];
+        });
       }, 2000);
     }
     if (loadTrigger) {
@@ -72,7 +74,9 @@ function PhotosPage() {
       {images && (
         <div className="flex flex-wrap justify-center p-7">
           {images.map((image, index) => {
-            return <img key={index} className="m-7" src={image} alt="Nice" />;
+            return (
+              <img key={index} className="m-7" src={image} alt="Gallery" />
+            );
           })}
         </div>
       )}
