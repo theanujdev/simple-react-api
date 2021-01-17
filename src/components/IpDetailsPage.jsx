@@ -3,9 +3,10 @@ import { useState } from "react";
 const IpDetailsPage = () => {
   const [ipDetails, setIpDetails] = useState({});
   function getDetails() {
-    fetch("http://ip-api.com/json/")
+    fetch("https://freegeoip.app/json/") //http://ip-api.com/json/
       .then((res) => res.json())
       .then((res) => {
+        delete res.metro_code;
         setIpDetails(res);
       })
       .catch((err) => console.log(err));
@@ -23,7 +24,7 @@ const IpDetailsPage = () => {
           Get Details
         </button>
         {Object.keys(ipDetails).length !== 0 && (
-          <div className="bg-white text-xs sm:text-lg mt-10 w-max p-3 sm:p-5 mx-auto shadow-md">
+          <div className="bg-white text-md sm:text-lg mt-10 w-max p-3 sm:p-5 mx-auto shadow-md">
             {Object.keys(ipDetails).map((key) => {
               return (
                 <p key={key} className="pb-2 sm:px-10">
