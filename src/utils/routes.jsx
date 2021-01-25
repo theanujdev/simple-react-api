@@ -3,6 +3,7 @@ import IpDetailsPage from "../components/IpDetailsPage";
 import JokesPage from "../components/JokesPage";
 import RobotsPage from "../components/RobotsPage";
 import PhotosPage from "../components/PhotosPage";
+import Error404 from "../components/Error404";
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
   {
     path: "/photos",
     component: PhotosPage,
+  },
+  {
+    path: "*",
+    component: Error404,
   },
 ];
 
